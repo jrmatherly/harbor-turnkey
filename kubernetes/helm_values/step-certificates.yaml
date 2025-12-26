@@ -1,0 +1,16 @@
+ca:
+  db:
+    size: 5Gi
+image:
+  repository: "smallstep/step-ca"
+  imagePullSecrets:
+    - "docker-hub"
+inject:
+  secrets:
+    # ca_password contains the password used to encrypt x509.intermediate_ca_key, ssh.host_ca_key and ssh.user_ca_key
+    # This value must be base64 encoded.
+    ca_password: "${root_ca_password}"
+    provisioner_password: "${root_ca_password}"
+
+service:
+  targetPort: 9000

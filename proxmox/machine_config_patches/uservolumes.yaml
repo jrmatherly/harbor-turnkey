@@ -1,0 +1,54 @@
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-large-1
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 200GB
+  maxSize: 200GB
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-small-1
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 5GB
+  maxSize: 5GB
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-small-2
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 5GB
+  maxSize: 5GB
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-small-3
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 5GB
+  maxSize: 5GB
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-small-4
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 5GB
+  maxSize: 5GB
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-small-5
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/vdb"
+  minSize: 5GB
+  maxSize: 5GB
