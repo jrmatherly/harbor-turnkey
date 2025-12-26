@@ -34,19 +34,19 @@ First clone the repo. The provisioning with [OpenTofu](https://opentofu.org/) ne
 ### Install Virtual Machine with Talos Linux on Proxmox
 Go to `proxmox` subdirectory and create a `configuration.auto.tfvars` file using the example:
 ```shell
-$ cp configuration.auto.tfvars.example configuration.auto.tfvars 
+cp configuration.auto.tfvars.example configuration.auto.tfvars 
 ```
 Then add the configuration as it suits your needs to the new file. 
 
 Create the virtual machine, install and configure Talos Linux:
 ```shell
-$ tofu init
-$ tofu plan
-$ tofu apply
+tofu init
+tofu plan
+tofu apply
 ```
 Then grab the kubeconfig and store it in some appropriate space (or merge with your already existing kubeconfig file):
 ```shell
-$ tofu output -raw kubeconfig > ~/.kube/harbor-config
+tofu output -raw kubeconfig > ~/.kube/harbor-config
 ```
 In the next step you will need to reference this kubeconfig file in your `configuration.auto.tfvars` of the OpenTofu
 `kubernetes` module.
@@ -66,15 +66,15 @@ bootstrap the Step CA in the cluster.
 
 In `kubernetes` subdirectory create a `configuration.auto.tfvars` file using the example:
 ```shell
-$ cp configuration.auto.tfvars.example configuration.auto.tfvars 
+cp configuration.auto.tfvars.example configuration.auto.tfvars 
 ```
 Then apply your configuration to the new file. 
 
 Install Harbor and all other applications into the Kubernetes cluster:
 ```shell
-$ tofu init
-$ tofu plan
-$ tofu apply
+tofu init
+tofu plan
+tofu apply
 ```
 After everything was provisioned with OpenTofu, [Harbor](https://goharbor.io/) is available locally under the IP
 address and domain which you configured earlier. You can now log in with username `admin` and your
@@ -83,8 +83,8 @@ address and domain which you configured earlier. You can now log in with usernam
 You might want to add a DNS entry for it and add the root CA to your local trust store. You can do this conveniently
 with Step CLI:
 ```shell
-$ tofu output -raw root_ca_crt > root_ca.crt
-$ step certificate install root-ca.crt
+tofu output -raw root_ca_crt > root_ca.crt
+step certificate install root-ca.crt
 ```
 
 ### Configure Kubernetes Cluster with the new Harbor Image Cache
